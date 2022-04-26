@@ -92,3 +92,35 @@ To run the file: `$ go run main.go`
 |`&`|address of/pointer|
 |`*`|dereference pointer|
 |`<-`|send or receive operator (ref. [Channels](#channels))|
+
+## Declarations
+Types goes after identifier!
+``` go
+// declaration without initialization
+var foo int
+// declaration with initialization
+var foo int = 42
+// declare multiple variables with initializations
+var foo, bar int = 42, 1302
+// The general, simplest way to create and initialize
+foo := 42
+// Constant
+const fooC = "constant"
+```
+Note: iota could be explained sooner if time allows.
+
+## Functions
+``` go
+// Simple way to create a function
+func functionName() {}
+
+// func with parameters
+func functionName(param1 string, param2 int) {}
+
+// func with same data type parameters
+func functionName(param1, param2 int) {}
+
+// return parameter from the function
+func functionName(a int) {
+   return 32
+}
