@@ -121,6 +121,96 @@ func functionName(param1 string, param2 int) {}
 func functionName(param1, param2 int) {}
 
 // return parameter from the function
-func functionName(a int) {
+func functionName() int {
    return 32
 }
+
+// return multiple values at once
+func functionName() (int, string) {
+   return 32, "abc"
+}
+
+// return multiple values existed in variables
+func functionName() (a int, b string) {
+   n = 32
+   s = "bac"
+   return // return simply like this
+}
+
+var x, y = functionName()
+
+```
+
+### Functions as values and closures
+This will be discussed later as it is quite confused me :).
+
+### Variadic Functions
+Also would be disccused later.
+
+## Built-in Types
+```go
+bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+
+byte // alias for uint8
+
+rune // alias for int32 ~= a character (Unicode code point) - very Viking
+
+float32 float64
+
+complex64 complex128
+```
+All Go's predeclared identifiers are defined in the [builtin](https://golang.org/pkg/builtin/) package. 
+
+## Type Conversions
+```go
+var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+
+// alternative syntax
+i := 42
+f := float64(i)
+u := uint(f)
+```
+
+## Packages
+This is package and how to declare it: `package main`
+* To declare it, it should be positioned at the top of the file
+* Executables are in the `main` package
+* If you want to take a package from outside files, or imported file you can simply take the last name of the import path. Example: `math/rand`, the package is `rand`.
+* Global package: Upper-case, visible and accesible from other packages.
+* Non-global: Lower-case, invisble and non-accesible from other packages.
+
+## Control structures
+
+### If
+```go
+func main() {
+	// Basic one
+	if x > 10 {
+		return x
+	} else if x == 10 {
+		return 10
+	} else {
+		return -x
+	}
+
+	// You can put one statement before the condition
+	if a := b + c; a < 42 {
+		return a
+	} else {
+		return a - 42
+	}
+
+	// Type assertion inside if
+	var val interface{} = "foo"
+	if str, ok := val.(string); ok {
+		fmt.Println(str)
+	}
+}
+```
